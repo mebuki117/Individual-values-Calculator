@@ -139,7 +139,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Calculation = New System.Windows.Forms.Button()
-        Me.Calc_ProgressBar = New System.Windows.Forms.ProgressBar()
         Me.Calced_Power_and_Type = New System.Windows.Forms.ListBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -156,16 +155,12 @@ Partial Class Form1
         Me.Label21 = New System.Windows.Forms.Label()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Label23 = New System.Windows.Forms.Label()
-        Me.Calc_Timeout = New System.Windows.Forms.TextBox()
         Me.IVs_Copy = New System.Windows.Forms.Button()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.Label24 = New System.Windows.Forms.Label()
         Me.Hidden_Copy = New System.Windows.Forms.Button()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -1531,17 +1526,10 @@ Partial Class Form1
         Me.Calculation.BackColor = System.Drawing.SystemColors.ControlLight
         Me.Calculation.Location = New System.Drawing.Point(12, 384)
         Me.Calculation.Name = "Calculation"
-        Me.Calculation.Size = New System.Drawing.Size(383, 32)
+        Me.Calculation.Size = New System.Drawing.Size(532, 32)
         Me.Calculation.TabIndex = 156
         Me.Calculation.Text = "計算"
         Me.Calculation.UseVisualStyleBackColor = False
-        '
-        'Calc_ProgressBar
-        '
-        Me.Calc_ProgressBar.Location = New System.Drawing.Point(401, 384)
-        Me.Calc_ProgressBar.Name = "Calc_ProgressBar"
-        Me.Calc_ProgressBar.Size = New System.Drawing.Size(143, 32)
-        Me.Calc_ProgressBar.TabIndex = 1
         '
         'Calced_Power_and_Type
         '
@@ -1581,16 +1569,16 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.Label21)
         Me.GroupBox3.Controls.Add(Me.Label22)
         Me.GroupBox3.Controls.Add(Me.Label23)
-        Me.GroupBox3.Location = New System.Drawing.Point(699, 85)
+        Me.GroupBox3.Location = New System.Drawing.Point(699, 12)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(143, 293)
+        Me.GroupBox3.Size = New System.Drawing.Size(143, 366)
         Me.GroupBox3.TabIndex = 159
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "個体値"
         '
         'Calced_Pokemon
         '
-        Me.Calced_Pokemon.Location = New System.Drawing.Point(3, 33)
+        Me.Calced_Pokemon.Location = New System.Drawing.Point(3, 106)
         Me.Calced_Pokemon.Margin = New System.Windows.Forms.Padding(0, 12, 0, 0)
         Me.Calced_Pokemon.Name = "Calced_Pokemon"
         Me.Calced_Pokemon.Size = New System.Drawing.Size(137, 17)
@@ -1600,7 +1588,7 @@ Partial Class Form1
         '
         'Calced_S_IVs
         '
-        Me.Calced_S_IVs.Location = New System.Drawing.Point(71, 255)
+        Me.Calced_S_IVs.Location = New System.Drawing.Point(71, 328)
         Me.Calced_S_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_S_IVs.Name = "Calced_S_IVs"
         Me.Calced_S_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1610,7 +1598,7 @@ Partial Class Form1
         '
         'Calced_D_IVs
         '
-        Me.Calced_D_IVs.Location = New System.Drawing.Point(71, 218)
+        Me.Calced_D_IVs.Location = New System.Drawing.Point(71, 291)
         Me.Calced_D_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_D_IVs.Name = "Calced_D_IVs"
         Me.Calced_D_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1620,7 +1608,7 @@ Partial Class Form1
         '
         'Calced_C_IVs
         '
-        Me.Calced_C_IVs.Location = New System.Drawing.Point(71, 182)
+        Me.Calced_C_IVs.Location = New System.Drawing.Point(71, 255)
         Me.Calced_C_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_C_IVs.Name = "Calced_C_IVs"
         Me.Calced_C_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1630,7 +1618,7 @@ Partial Class Form1
         '
         'Calced_B_IVs
         '
-        Me.Calced_B_IVs.Location = New System.Drawing.Point(71, 144)
+        Me.Calced_B_IVs.Location = New System.Drawing.Point(71, 217)
         Me.Calced_B_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_B_IVs.Name = "Calced_B_IVs"
         Me.Calced_B_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1640,7 +1628,7 @@ Partial Class Form1
         '
         'Calced_A_IVs
         '
-        Me.Calced_A_IVs.Location = New System.Drawing.Point(71, 107)
+        Me.Calced_A_IVs.Location = New System.Drawing.Point(71, 180)
         Me.Calced_A_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_A_IVs.Name = "Calced_A_IVs"
         Me.Calced_A_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1651,7 +1639,7 @@ Partial Class Form1
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(15, 255)
+        Me.Label18.Location = New System.Drawing.Point(15, 328)
         Me.Label18.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(56, 17)
@@ -1660,7 +1648,7 @@ Partial Class Form1
         '
         'Calced_HP_IVs
         '
-        Me.Calced_HP_IVs.Location = New System.Drawing.Point(71, 70)
+        Me.Calced_HP_IVs.Location = New System.Drawing.Point(71, 143)
         Me.Calced_HP_IVs.Margin = New System.Windows.Forms.Padding(0, 0, 12, 0)
         Me.Calced_HP_IVs.Name = "Calced_HP_IVs"
         Me.Calced_HP_IVs.Size = New System.Drawing.Size(57, 17)
@@ -1671,7 +1659,7 @@ Partial Class Form1
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(24, 218)
+        Me.Label19.Location = New System.Drawing.Point(24, 291)
         Me.Label19.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(47, 17)
@@ -1681,7 +1669,7 @@ Partial Class Form1
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(24, 182)
+        Me.Label20.Location = New System.Drawing.Point(24, 255)
         Me.Label20.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(47, 17)
@@ -1691,7 +1679,7 @@ Partial Class Form1
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(24, 144)
+        Me.Label21.Location = New System.Drawing.Point(24, 217)
         Me.Label21.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(47, 17)
@@ -1701,7 +1689,7 @@ Partial Class Form1
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(24, 107)
+        Me.Label22.Location = New System.Drawing.Point(24, 180)
         Me.Label22.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(47, 17)
@@ -1711,24 +1699,12 @@ Partial Class Form1
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(34, 70)
+        Me.Label23.Location = New System.Drawing.Point(34, 143)
         Me.Label23.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(37, 17)
         Me.Label23.TabIndex = 23
         Me.Label23.Text = "HP："
-        '
-        'Calc_Timeout
-        '
-        Me.Calc_Timeout.BackColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer), CType(CType(225, Byte), Integer))
-        Me.Calc_Timeout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Calc_Timeout.Location = New System.Drawing.Point(62, 30)
-        Me.Calc_Timeout.Margin = New System.Windows.Forms.Padding(0, 9, 12, 12)
-        Me.Calc_Timeout.MaxLength = 3
-        Me.Calc_Timeout.Name = "Calc_Timeout"
-        Me.Calc_Timeout.Size = New System.Drawing.Size(66, 25)
-        Me.Calc_Timeout.TabIndex = 156
-        Me.Calc_Timeout.Text = "20"
         '
         'IVs_Copy
         '
@@ -1738,28 +1714,6 @@ Partial Class Form1
         Me.IVs_Copy.TabIndex = 34
         Me.IVs_Copy.Text = "個体値をコピー"
         Me.IVs_Copy.UseVisualStyleBackColor = True
-        '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.Label24)
-        Me.GroupBox4.Controls.Add(Me.Calc_Timeout)
-        Me.GroupBox4.Location = New System.Drawing.Point(699, 12)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(143, 67)
-        Me.GroupBox4.TabIndex = 160
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "タイムアウト"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(15, 33)
-        Me.Label24.Margin = New System.Windows.Forms.Padding(12, 0, 0, 0)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(47, 17)
-        Me.Label24.TabIndex = 156
-        Me.Label24.Text = "秒数："
-        Me.ToolTip1.SetToolTip(Me.Label24, "一定時間経過したら、計算を強制終了させる")
         '
         'Hidden_Copy
         '
@@ -1778,10 +1732,8 @@ Partial Class Form1
         Me.BackColor = System.Drawing.SystemColors.ControlLight
         Me.ClientSize = New System.Drawing.Size(854, 637)
         Me.Controls.Add(Me.Hidden_Copy)
-        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.IVs_Copy)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.Calc_ProgressBar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Calculation)
         Me.Controls.Add(Me.GroupBox1)
@@ -1790,14 +1742,12 @@ Partial Class Form1
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.MaximumSize = New System.Drawing.Size(870, 676)
         Me.Name = "Form1"
-        Me.Text = "Individual values Calculator v0.1.0"
+        Me.Text = "Individual values Calculator v0.2.0"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1915,7 +1865,6 @@ Partial Class Form1
     Friend WithEvents A_IVs_Plus As Button
     Friend WithEvents HP_IVs_Enabled As CheckBox
     Friend WithEvents Calculation As Button
-    Friend WithEvents Calc_ProgressBar As ProgressBar
     Friend WithEvents Calced_Power_and_Type As ListBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
@@ -1931,11 +1880,8 @@ Partial Class Form1
     Friend WithEvents Calced_C_IVs As Label
     Friend WithEvents Calced_B_IVs As Label
     Friend WithEvents Calced_A_IVs As Label
-    Friend WithEvents Calc_Timeout As TextBox
     Friend WithEvents IVs_Copy As Button
     Friend WithEvents Calced_Pokemon As Label
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents Label24 As Label
     Friend WithEvents Hidden_Calc_Enabled As CheckBox
     Friend WithEvents Hidden_Copy As Button
     Friend WithEvents ToolTip1 As ToolTip

@@ -647,15 +647,6 @@ Public Class Form1
 
     Private Sub Calculation_Click(sender As Object, e As EventArgs) Handles Calculation.Click
 
-        'タイムアウト用
-        If (Calc_Timeout.Text = "") Then Calc_Timeout.Text = 1
-        Dim Time As DateTime = DateTime.Now
-        Dim Timeout_Time As DateTime = Time.AddSeconds(Calc_Timeout.Text)
-
-        'プログレスバー
-        Calc_ProgressBar.Value = 0
-        Calc_ProgressBar.Maximum = 1
-
         '可能性のあるめざパのリセット
         Calced_Power_and_Type.Items.Clear()
         Calced_Power_and_Type.Update()
@@ -838,8 +829,6 @@ Public Class Form1
         End If
         Calced_S_IVs.Update()
 
-        'プログレスバー
-        Calc_ProgressBar.Value = 1
 
         '実数値が不正な場合、計算をスキップする
         If (IVs_MimMax(0) = 99 Or IVs_MimMax(2) = 99 Or IVs_MimMax(4) = 99 Or IVs_MimMax(6) = 99 Or IVs_MimMax(8) = 99 Or IVs_MimMax(10) = 99 Or (Pokemon_Basics(Name_Index) = "ヌケニン" And RSs(0) <> 1)) Then
@@ -894,7 +883,7 @@ Public Class Form1
                 If (Hidden_Calc_Enabled.Checked = False) Then Exit Sub
             Else
                 '実数値警告
-                If MessageBox.Show(Warn_Msg.TrimEnd(CType("、", Char)) + "の個体値が判断できません。この状態で計算しますか？", "実数値が不正です", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then Exit Sub
+                If MessageBox.Show(Warn_Msg.TrimEnd(CType("、", Char)) + "の個体値が判断できません。この状態でめざめるパワーを計算しますか？", "実数値が不正です", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) = DialogResult.No Then Exit Sub
             End If
         End If
         'めざパ計算が無効の時は終了
@@ -923,20 +912,24 @@ Public Class Form1
         Dim Hiiden_Power_Found_Power_Count As Integer = 0
 
 
-        'プログレスバー
-        Dim Max As Integer = (IVs_MimMax(1) - IVs_MimMax(0) + 1) * (IVs_MimMax(3) - IVs_MimMax(2) + 1) * (IVs_MimMax(5) - IVs_MimMax(4) + 1) * (IVs_MimMax(7) - IVs_MimMax(6) + 1) * (IVs_MimMax(9) - IVs_MimMax(8) + 1) * (IVs_MimMax(11) - IVs_MimMax(10) + 1)
-        Calc_ProgressBar.Maximum = Max
-        Dim Count As Integer = 0
-
-
         '可能性のある個体値の組み合わせを全て計算する
         Dim Break As Integer = False
         Do While Break = False
             For HL = IVs_MimMax(0) To IVs_MimMax(1)
+                '超過計算
+                If (IVs_MimMax(0) + 4 <= HL) Then Exit For
                 For AL = IVs_MimMax(2) To IVs_MimMax(3)
+                    '超過計算
+                    If (IVs_MimMax(2) + 4 <= AL) Then Exit For
                     For BL = IVs_MimMax(4) To IVs_MimMax(5)
+                        '超過計算
+                        If (IVs_MimMax(4) + 4 <= BL) Then Exit For
                         For CL = IVs_MimMax(6) To IVs_MimMax(7)
+                            '超過計算
+                            If (IVs_MimMax(6) + 4 <= CL) Then Exit For
                             For DL = IVs_MimMax(8) To IVs_MimMax(9)
+                                '超過計算
+                                If (IVs_MimMax(8) + 4 <= DL) Then Exit For
                                 For SL = IVs_MimMax(10) To IVs_MimMax(11)
 
                                     Type_Total = 0
@@ -954,10 +947,12 @@ Public Class Form1
                                     If (SL Mod 4 = 2 Or SL Mod 4 = 3) Then Power_Total += 8
                                     If (CL Mod 4 = 2 Or CL Mod 4 = 3) Then Power_Total += 16
                                     If (DL Mod 4 = 2 Or DL Mod 4 = 3) Then Power_Total += 32
+
                                     If Math.Floor(Type_Total * 15 / 63) = 0 And Hidden_Power_Type_0.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_0.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(0) += 1
                                     End If
+
                                     If Math.Floor(Type_Total * 15 / 63) = 1 And Hidden_Power_Type_1.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_1.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(1) += 1
@@ -982,10 +977,12 @@ Public Class Form1
                                         Hidden_Power_Type_5.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(5) += 1
                                     End If
+
                                     If Math.Floor(Type_Total * 15 / 63) = 6 And Hidden_Power_Type_6.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_6.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(6) += 1
                                     End If
+
                                     If Math.Floor(Type_Total * 15 / 63) = 7 And Hidden_Power_Type_7.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_7.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(7) += 1
@@ -1005,10 +1002,12 @@ Public Class Form1
                                         Hidden_Power_Type_10.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(10) += 1
                                     End If
+
                                     If Math.Floor(Type_Total * 15 / 63) = 11 And Hidden_Power_Type_11.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_11.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(11) += 1
                                     End If
+
                                     If Math.Floor(Type_Total * 15 / 63) = 12 And Hidden_Power_Type_12.Contains(Math.Floor(Power_Total * 40 / 63 + 30)) = False Then
                                         Hidden_Power_Type_12.Add(Math.Floor(Power_Total * 40 / 63 + 30))
                                         Hiiden_Power_Power_Calced_Count(12) += 1
@@ -1029,23 +1028,8 @@ Public Class Form1
                                         Hiiden_Power_Power_Calced_Count(15) += 1
                                     End If
 
-                                    'プログレスバー更新
-                                    Count += 1
-                                    Calc_ProgressBar.Value = Math.Max(Count, Math.Ceiling(Max / 16 * Hiiden_Power_Found_Power_Count))
-
                                     '超過計算
-                                    For L = 0 To 15
-                                        If (Hiiden_Power_Power_Calced_Count(L)) = 41 Then Hiiden_Power_Found_Power_Count += 1
-                                        Calc_ProgressBar.Value = Math.Max(Count, Math.Ceiling(Max / 16 * Hiiden_Power_Found_Power_Count))
-                                        If (Hiiden_Power_Found_Power_Count = 16) Then Exit Do
-                                    Next
-
-                                    'タイムアウト
-                                    Time = DateTime.Now
-                                    If (Time >= Timeout_Time) Then
-                                        MessageBox.Show("一定時間経過したため、計算がタイムアウトされました", "時間超過", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                        Exit Sub
-                                    End If
+                                    If (IVs_MimMax(10) + 4 <= SL) Then Exit For
                                 Next
                             Next
                         Next
@@ -1163,11 +1147,6 @@ Public Class Form1
             If (Calced_Hidden_Power_Powers(L).Length <> False) Then Calced_Power_and_Type.Items.Add(Type_Correspondence_Table(L) & "[" & Calced_Hidden_Power_Powers(L) & "]")
         Next
 
-
-
-
-
-
     End Sub
 
 
@@ -1194,12 +1173,6 @@ Public Class Form1
             D_IVs_Enabled.Checked = False
             S_IVs_Enabled.Checked = False
         End If
-    End Sub
-
-
-    'タイムアウト
-    Private Sub Calc_Timeout_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Calc_Timeout.KeyPress
-        If Not (("0"c <= e.KeyChar And e.KeyChar <= "9"c) Or e.KeyChar = ControlChars.Back) Then e.Handled = True
     End Sub
 
 
